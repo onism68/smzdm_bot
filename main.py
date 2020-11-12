@@ -64,7 +64,8 @@ if __name__ == '__main__':
     print(res)
     session = requests.Session()
     session.headers = {SECRETKEY: SECRETKEY_VALUE}
-    session.post(url=PUSH_URL, json={PUSH_ID:PUSH_ID_VALUE,"message":str(res)})
+    res1 = session.post(url=PUSH_URL, json={PUSH_ID:PUSH_ID_VALUE,"message":str(res)})
+    print(res1)
     push_to_wechat(text = '什么值得买每日签到',
                     desp = str(res),
                     secretKey = SERVERCHAN_SECRETKEY)
