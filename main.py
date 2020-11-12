@@ -54,9 +54,17 @@ if __name__ == '__main__':
     # sb.load_cookie_str(config.TEST_COOKIE)
     cookies = os.environ["SMZDM_COOKIES"]
     SERVERCHAN_SECRETKEY = os.environ["SERVERCHAN_SECRETKEY"]
+    PUSHUrl = os.environ["PUSH_URL"]
+    SECRETKEY = os.environ["SECRETKEY"]
+    SECRETKEY_VALUE = os.environ["SECRETKEY_VALUE"]
+    PUSH_ID = os.environ["PUSH_ID"]
+    PUSH_ID_VALUE = os.environ["PUSH_ID_VALUE"]
     sb.load_cookie_str(cookies)
     res = sb.checkin()
     print(res)
+    session = requests.Session()
+    session.headers = {"key": KEY}
+    session.post(url=PUSHUrl, data={PUSH_ID:PUSH_ID_VALUE,"message":str(res)})
     push_to_wechat(text = '什么值得买每日签到',
                     desp = str(res),
                     secretKey = SERVERCHAN_SECRETKEY)
