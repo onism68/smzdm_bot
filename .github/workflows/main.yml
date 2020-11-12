@@ -38,4 +38,9 @@ jobs:
         env:
           SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
           SERVERCHAN_SECRETKEY: ${{ secrets.SERVERCHAN_SECRETKEY }}
+          PUSH_URL: ${{ secrets.PUSH_URL }}
+          SECRETKEY: ${{ secrets.SECRETKEY }}
+          SECRETKEY_VALUE: ${{ secrets.SECRETKEY_VALUE }}
+          PUSH_ID: ${{ secrets.PUSH_ID }}
+          PUSH_ID_VALUE: ${{ secrets.PUSH_ID_VALUE }}
         run: python main.py >SMZDM_Bot.log
