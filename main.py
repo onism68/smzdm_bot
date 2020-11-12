@@ -63,7 +63,7 @@ if __name__ == '__main__':
     res = sb.checkin()
     print(res)
     session = requests.Session()
-    session.headers = {"SECRETKEY": SECRETKEY_VALUE}
+    session.headers = {SECRETKEY: SECRETKEY_VALUE}
     session.post(url=PUSH_URL, data={PUSH_ID:PUSH_ID_VALUE,"message":str(res)})
     push_to_wechat(text = '什么值得买每日签到',
                     desp = str(res),
