@@ -59,13 +59,24 @@ if __name__ == '__main__':
     SECRETKEY_VALUE = os.environ["SECRETKEY_VALUE"]
     PUSH_ID = os.environ["PUSH_ID"]
     PUSH_ID_VALUE = os.environ["PUSH_ID_VALUE"]
+    
+    PUSH_TG_URL = os.environ["PUSH_TG_URL"]
+    PUSH_TG_ID = os.environ["PUSH_TG_ID"]
     sb.load_cookie_str(cookies)
     res = sb.checkin()
     print(res)
+#     try:
+#         session = requests.Session()
+#         session.headers = {SECRETKEY: SECRETKEY_VALUE}
+#         res1 = session.post(url=PUSH_URL, json={PUSH_ID:PUSH_ID_VALUE,"message":str(res)})
+#         print(res1.text)
+#     except Exception as e:
+#         print(e)
+# TG 推送
     try:
         session = requests.Session()
-        session.headers = {SECRETKEY: SECRETKEY_VALUE}
-        res1 = session.post(url=PUSH_URL, json={PUSH_ID:PUSH_ID_VALUE,"message":str(res)})
+#         session.headers = {SECRETKEY: SECRETKEY_VALUE}
+        res1 = session.post(url=PUSH_TG_URL, json={"id":PUSH_TG_ID,"msg":str(res)})
         print(res1.text)
     except Exception as e:
         print(e)
