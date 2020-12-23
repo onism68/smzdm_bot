@@ -39,6 +39,7 @@ jobs:
           SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
           SERVERCHAN_SECRETKEY: ${{ secrets.SERVERCHAN_SECRETKEY }}
           PUSH_URL: ${{ secrets.PUSH_URL }}
+          PUSH_TG_URL: ${{ secrets.PUSH_TG_URL }}
           SECRETKEY: ${{ secrets.SECRETKEY }}
           SECRETKEY_VALUE: ${{ secrets.SECRETKEY_VALUE }}
           PUSH_ID: ${{ secrets.PUSH_ID }}
